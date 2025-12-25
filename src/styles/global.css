@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1e293b 0%, #020617 70%);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  text-align: center;
+}
+
+.job-card {
+  background: linear-gradient(145deg, rgba(2,6,23,0.95), rgba(15,23,42,0.85));
+  border-radius: 28px;
+  padding: 30px 26px 34px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  position: relative;
+  transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
+}
+
+/* Hiring badge */
+.hiring-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  color: #022c22;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+/* Avatar */
+.company-avatar {
+  width: 96px;
+  height: 96px;
+  margin: 32px auto 14px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #020617;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+}
+
+.company-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text */
+.card-body {
+  text-align: center;
+}
+
+.company-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 10px 0 4px;
+}
+
+.job-title {
+  font-size: 1rem;
+  color: #94a3b8;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.tag {
+  background: rgba(99, 102, 241, 0.18);
+  color: #c7d2fe;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+/* View button */
+.view-btn {
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #e5e7eb;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border 0.2s ease;
+}
+
+.view-btn:hover {
+  background: rgba(148, 163, 184, 0.1);
+  border-color: rgba(148, 163, 184, 0.5);
+}
+
+/* Actions */
+.swipe-actions {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  margin-top: 26px;
+}
+
+.swipe-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  background: #020617;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.swipe-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.9);
+}
+
+.swipe-btn.skip {
+  color: #fb7185;
+  transform: translateY(6px);
+  opacity: 0.9;
+}
+
+.swipe-btn.like {
+  color: #4ade80;
+  box-shadow: 0 0 24px rgba(74, 222, 128, 0.6);
+}
+
+/* Swipe transitions */
+.swipe-right {
+  transform: translateX(420px) rotate(10deg);
+  opacity: 0;
+}
+
+.swipe-left {
+  transform: translateX(-420px) rotate(-10deg);
+  opacity: 0;
+}
+/* ================= MODAL UI ================= */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-sheet {
+  background: linear-gradient(145deg, rgba(15,23,42,0.95), rgba(2,6,23,0.95));
+  border-radius: 24px;
+  padding: 28px 26px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+  animation: modal-in 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@keyframes modal-in {
+  from {
+    transform: translateY(20px) scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  text-align: center;
+}
+
+.modal-company {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.modal-body {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e5e7eb;
+}
+
+.eligibility {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(148,163,184,0.08);
+  font-size: 0.85rem;
+}
+
+.eligibility .label {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  display: block;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modal-footer .primary {
+  flex: 1;
+  background: #22c55e;
+  color: #022c22;
+  border: none;
+  border-radius: 999px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal-footer .primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.modal-footer .secondary {
+  background: transparent;
+  border: 1px solid rgba(148,163,184,0.4);
+  color: white;
+  border-radius: 999px;
+  padding: 12px;
+  cursor: pointer;
+}
