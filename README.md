@@ -157,7 +157,6 @@ Extending the system
 Because logic is isolated and state is localized, new features can be added without rewriting the core flow.
 
 # Running the project
-npm install
 npm run dev
 
 # Deployment

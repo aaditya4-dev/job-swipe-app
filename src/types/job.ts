@@ -7,7 +7,7 @@ export type Job = {
   eligibility: {
     cgpa: string;
     branch: string; 
-    logo?: string;
+    
 
   };
   keywords: string[];

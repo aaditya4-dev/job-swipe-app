@@ -28,7 +28,7 @@ export const jobs: Job[] = [
       cgpa: "6.0+",
       branch: "Any",
     },
-    keywords: ["ui", "css", "figma","html","git","responsive"],
+    keywords: ["ui", "css", "figma","html","git"],
      formLink:"https://docs.google.com/forms/d/e/1FAIpQLSfsiD8G0aJkhscBaoeHf4b1mpZhG4g_HEEjysp8eeSsOQ9DLA/viewform"
   },
 ];
