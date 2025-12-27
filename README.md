@@ -135,6 +135,39 @@ Backend → API
 Partial credit is given to avoid overly strict matching.
 All ATS logic is isolated inside calculateATS, keeping UI components clean. 
 
+# View Applications Logic
+
+The View Applications feature allows users to see all the jobs they have applied to in one place.
+
+How it works
+
+When a user applies to a job, the app creates an application object instead of just storing the job ID.
+Each application stores:
+
+Job details (company and role)
+
+Application status (Submitted, Reviewed, Rejected) // the status is static since stays at submitted after submitting the application.not switches to reviewed ,rejected but can be expanded.
+
+Date of application
+
+All application objects are stored in a single state inside Home.tsx.
+
+Preventing duplicate applications
+
+Before showing the “Apply” button, the app checks whether an application already exists for that job.
+If it exists, the button is disabled and marked as “Already Applied”.
+
+Displaying applications
+
+The My Applications button opens a modal that receives the applications list and renders it in a table format with:
+
+Company name
+
+Job role
+
+Status
+
+Date applied
 # Design and UX decisions
 
 1.Liking a job indicates interest, not application.

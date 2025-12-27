@@ -12,8 +12,8 @@ export const useSwipe = (onLeft: () => void, onRight: () => void) => {
 
     const diff = e.clientX - startX.current;
 
-    if (diff > 60) onRight();
-    else if (diff < -60) onLeft();
+    if (diff > 80) onRight();
+    else if (diff < -80) onLeft();
 
     startX.current = null;
   };
